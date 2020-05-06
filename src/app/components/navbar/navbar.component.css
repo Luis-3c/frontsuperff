@@ -1,0 +1,25 @@
+.logo {
+    width: 140px;
+    height: 80px;;
+}
+
+/* .navbar {
+    background: rgb(211, 32, 32);
+    background: linear-gradient(90deg, rgba(38,35,35,0.73) 0%, rgba(38,35,35,0.73) 100%);
+    color: white;
+} */
+
+.navbar-custom{
+    background-color: #d12323;;
+    font-size: 18px;
+}
+.navbar-custom a {
+    color: white;
+}
+
+.navbar-inverse{
+    background: rgb(37, 35, 35);
+    background: linear-gradient(90deg, rgba(38,35,35,0.73) 0%, rgba(38,35,35,0.73) 100%);
+    color: white;
+} 
+
