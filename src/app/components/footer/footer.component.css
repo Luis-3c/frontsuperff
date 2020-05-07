@@ -1,0 +1,114 @@
+
+.footer {
+    width: 100%;
+    height: 400px;
+    background-color: teal;
+    margin-top: 80px;/* 
+    background-image: url("../../../assets/alidesign-img/alifooter2.png"); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.footericons {
+    width: 30%;
+    height: 28%;
+    margin-left: 50%;
+    margin-top: 5%;
+    float: left;
+}
+
+.footerText {
+    font-family: 'Crete Round', serif;
+    font-family: 'Cuprum', sans-serif; 
+    font-size: 24px;
+    color: red;
+    margin-left: 65px;
+    margin-top: 24%;
+    float: left; 
+
+}
+
+
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+.social-network a.icoInsta:hover {
+	background: rgb(233,168,44);
+    background: linear-gradient(8deg, rgba(233,168,44,1) 0%, rgba(210,80,60,1) 48%, rgba(166,25,194,1) 100%);
+}
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+
+.social-network a.icoInsta:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+	font-size:20px;
+	background-color: #7D807D;
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+
+.icon-cont {
+    margin: 0 auto 0 auto;
+}
+
+#sticky-footer {
+    background: rgb(85,84,0);
+    background: linear-gradient(90deg, rgb(27, 25, 24) 0%, rgb(17, 17, 16) 48%, rgb(31, 27, 27) 100%);
+}

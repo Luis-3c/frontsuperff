@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col" *ngFor="let v of videoList">
+            <div class="card" style="width: 18rem;">
+                <img src="https://i.vimeocdn.com/video/549119976_640.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{v.title}}</h5>
+                  <hr>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <div class="card-body">
+                  <a href="#" class="btn btn-danger">Play</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,8 @@
 } */
 
 .navbar-custom{
-    background-color: #d12323;;
+    background-color: #d12323;
+    font-family: 'Rubik', sans-serif;
     font-size: 18px;
 }
 .navbar-custom a {

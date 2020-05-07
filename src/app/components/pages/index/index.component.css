@@ -1,0 +1,62 @@
+.banner-index{
+    width: 100%;
+    height: 650px;
+    background-color: #d12323;
+}
+
+.videosection-index{
+    width: 100%;
+    background-color: #ddd2d2;
+    /* font-family: 'Oxygen', sans-serif; */
+    font-family: 'PT Sans', sans-serif;
+
+}
+
+.videosection-index-title {
+    color: rgb(10, 10, 10);
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.videosection-index-body {
+    color: rgb(20, 19, 19);
+    padding-left: 13%;
+    
+}
+
+.more{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+
+.more a {
+    color: rgb(187, 8, 8);
+}
+
+.blogsection-index {
+    width: 100%;
+    background-color: rgb(61, 37, 37);
+    padding-bottom: 3%;
+}
+
+.blogsection-index-title {
+    color: rgb(241, 229, 229);
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.blogsection-index-body {
+    color: rgb(241, 229, 229);
+    padding-left: 13%;
+  
+}
+
+.dietsection-index {
+    width: 100%;
+    background-color: rgb(97, 94, 93);
+    padding-bottom: 3%;
+}
