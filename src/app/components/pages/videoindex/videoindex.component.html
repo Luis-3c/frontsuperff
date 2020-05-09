@@ -1,0 +1,35 @@
+<div class="vidindexContainer">
+  <div class="loaderCont" style="height: 960px;" *ngIf="loading; else videoCards">
+    <div class="row">
+      <div class="col"><app-loader></app-loader></div>
+      <div class="col"><app-loader></app-loader></div>
+      <div class="col"><app-loader></app-loader></div>
+    </div>    
+  </div>
+  <ng-template #videoCards>
+    <div class="row">
+      <div class="col mt-3" *ngFor="let v of videoList">
+        <div class="card" style="width: 22rem;">
+          <div class="row">
+            <div class="col-sm-12">
+              <img
+                src="https://i.vimeocdn.com/video/549119976_640.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <b>{{ v.title }}</b>
+                </h5>
+                <p class="card-text">{{ v.description }}</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-danger">Play</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

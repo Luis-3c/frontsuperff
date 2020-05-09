@@ -1,0 +1,15 @@
+.vidindexContainer{
+    width: 100%;
+    background-color: rgb(46, 42, 42);
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 4%;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.card {
+    background-color: rgb(88, 75, 75);
+    color: white;
+}
+

@@ -1,0 +1,103 @@
+<div class="maincont">
+  <div class="container register-form col-md-4">
+    <div class="form">
+      <div class="note">
+        <h4><p>Create your account, it only takes a minute.</p></h4>
+      </div>
+
+      <div class="form-content">
+        <form #registerForm="ngForm" (ngSubmit)="signup()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="firstname"
+                  id="firstname"
+                  [(ngModel)]="name1" 
+                  placeholder="First Name"
+                  value=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="lastname"
+                  [(ngModel)]="name2" 
+                  placeholder="Last Name"
+                  value=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  [(ngModel)]="email" 
+                  placeholder="Email"
+                  value=""
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  required
+                  #emailt = "ngModel"
+                />
+              </div>
+            </div>
+            <div class="text-danger" *ngIf="emailt.errors?.pattern">
+              <p><b>Invalid email address.</b></p>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  [(ngModel)]="pass1" 
+                  placeholder="Password"
+                  value=""
+                  required
+                  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                  #password = "ngModel"                                 
+                />
+              </div>
+            </div>
+            <div class="text-danger" *ngIf="password.errors?.pattern">
+              <p><b>password must be at least 8 characters long. It must include uppercase, lowercase, symbols and numbers.</b></p>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="confirmPass"
+                  [(ngModel)]="pass2" 
+                  (input)="comparePass($event.target.value)" 
+                  placeholder="Confirm Password"
+                  value=""
+                  required
+                />
+              </div>
+              <div *ngIf="!correctPasswords" class="text-danger">
+                <p><b>Passwords do not match.</b></p>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btnSubmit" [disabled]="!registerForm.valid || !correctPasswords">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+</div>
+
+
+<!-- 
+pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" -->

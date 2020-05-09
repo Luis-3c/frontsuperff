@@ -40,6 +40,7 @@
     width: 100%;
     background-color: rgb(61, 37, 37);
     padding-bottom: 3%;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .blogsection-index-title {
@@ -59,4 +60,5 @@
     width: 100%;
     background-color: rgb(97, 94, 93);
     padding-bottom: 3%;
+    font-family: 'PT Sans', sans-serif;
 }

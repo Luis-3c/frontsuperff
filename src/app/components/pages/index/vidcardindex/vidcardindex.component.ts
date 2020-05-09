@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { VideoListIndex} from '../../../../interfaces/video-list-index';
+import { Video } from '../../../../interfaces/video';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { VideoListIndex} from '../../../../interfaces/video-list-index';
   styleUrls: ['./vidcardindex.component.css']
 })
 export class VidcardindexComponent implements OnInit {
-@Input() videoList : VideoListIndex[];
+@Input() videoList : Video[];
   constructor() { 
     console.log(this.videoList);
   }
