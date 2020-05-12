@@ -15,7 +15,7 @@
                   class="form-control"
                   name="firstname"
                   id="firstname"
-                  [(ngModel)]="name1" 
+                  [(ngModel)]="user.first_name"
                   placeholder="First Name"
                   value=""
                   required
@@ -28,7 +28,7 @@
                   type="text"
                   class="form-control"
                   name="lastname"
-                  [(ngModel)]="name2" 
+                  [(ngModel)]="user.last_name"
                   placeholder="Last Name"
                   value=""
                   required
@@ -41,17 +41,75 @@
                   type="email"
                   class="form-control"
                   name="email"
-                  [(ngModel)]="email" 
+                  [(ngModel)]="user.email"
                   placeholder="Email"
                   value=""
                   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
                   required
-                  #emailt = "ngModel"
+                  #emailt="ngModel"
                 />
               </div>
             </div>
             <div class="text-danger" *ngIf="emailt.errors?.pattern">
               <p><b>Invalid email address.</b></p>
+            </div>
+            <div class="col-md-12">
+              <label for="">Birthdate:</label>
+            </div>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="day"
+                    id="day"
+                    placeholder="Day"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <select
+                    class="form-control"
+                    name="month"
+                    id="month"
+                    placeholder="Month"
+                  >
+                    <option value="0">Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">Abril</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="year"
+                    id="year"
+                    placeholder="Year"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="">My goal: </label>
+            </div>
+            <div class="col-md 12">
+              <div class="form-group">
+                <select class="form-control" name="" id="">
+                  <option value="">subir</option>
+                  <option value="">bajar</option>
+                </select>
+              </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
@@ -60,17 +118,22 @@
                   class="form-control"
                   name="password"
                   id="password"
-                  [(ngModel)]="pass1" 
+                  [(ngModel)]="user.password"
                   placeholder="Password"
                   value=""
                   required
                   pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
-                  #password = "ngModel"                                 
+                  #password="ngModel"
                 />
               </div>
             </div>
             <div class="text-danger" *ngIf="password.errors?.pattern">
-              <p><b>password must be at least 8 characters long. It must include uppercase, lowercase, symbols and numbers.</b></p>
+              <p>
+                <b
+                  >password must be at least 8 characters long. It must include
+                  uppercase, lowercase, symbols and numbers.</b
+                >
+              </p>
             </div>
             <div class="col-md-12">
               <div class="form-group">
@@ -78,8 +141,8 @@
                   type="password"
                   class="form-control"
                   name="confirmPass"
-                  [(ngModel)]="pass2" 
-                  (input)="comparePass($event.target.value)" 
+                  [(ngModel)]="confirmPass"
+                  (input)="comparePass($event.target.value)"
                   placeholder="Confirm Password"
                   value=""
                   required
@@ -90,14 +153,19 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="btnSubmit" [disabled]="!registerForm.valid || !correctPasswords">Register</button>
+          <button
+            type="submit"
+            class="btnSubmit"
+            [disabled]="!registerForm.valid || !correctPasswords"
+          >
+            Register
+          </button>
         </form>
       </div>
     </div>
   </div>
   <br />
 </div>
-
 
 <!-- 
 pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" -->

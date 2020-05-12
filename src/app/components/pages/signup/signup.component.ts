@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { User } from '../../../interfaces/user';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -7,11 +8,14 @@ import { FormsModule } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
 
- name1: String;
- name2: String;
- email: String;
- pass1: String;
- pass2: String;
+user: User = {
+  first_name: null,
+  last_name: null,
+  email: null,
+  password: null,
+  born_date: null  
+};
+confirmPass: String;
 
  correctPasswords: boolean = true;
 
@@ -32,7 +36,7 @@ export class SignupComponent implements OnInit {
   }
 
   comparePass(searchValue: string) {  
-    if(this.pass1 != this.pass2) 
+    if(this.user.password != this.confirmPass) 
       this.correctPasswords = false;
     else this.correctPasswords = true;
 
