@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms'
 import { User } from '../../../interfaces/user';
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -17,9 +18,18 @@ user: User = {
 };
 confirmPass: String;
 
- correctPasswords: boolean = true;
+year: String;
+month: String = '0';
+day: String;
 
-  constructor() { 
+
+ correctPasswords: boolean = true;
+ invalidDate: boolean = false;
+ 
+  constructor() {
+    /* const date = moment("2016-12-19");
+    console.log('MOMENT: ', date); 
+    if (date.isValid()){console.log('es valida')}else{console.log('no es valida')} */
     
    /*  this.form = this.fb.group({
       password: ['pene',
@@ -32,7 +42,12 @@ confirmPass: String;
   }
 
   signup(){
-    console.log('llega');
+    if(this.fechaValida()){
+      this.invalidDate = false;
+      console.log('listo para mandar por post: ', this.user)
+    }else{
+      this.invalidDate = true;
+    }
   }
 
   comparePass(searchValue: string) {  
@@ -44,6 +59,16 @@ confirmPass: String;
 
   verifyPass(searchValue: String){
     console.log("llega")
+  }
+
+  fechaValida(): boolean{
+    const date = moment(`${this.year}-${this.month}-${this.day}`);
+    console.log('born date: ', date);
+    if(date.isValid()){
+      this.user.born_date = `${this.year}-${this.month}-${this.day}`;
+      return true;
+    }
+    return false;
   }
 
 
