@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxStripeModule } from 'ngx-stripe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ import { SubscriptionComponent } from './components/pages/subscription/subscript
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxStripeModule.forRoot('pk_test_OPZ1ATnLOl8lksdtMwg2Dw9900Mj83naSI')
   ],
   providers: [],
   bootstrap: [AppComponent]

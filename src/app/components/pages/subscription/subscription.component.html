@@ -1,7 +1,34 @@
 <div class="subsCont">
-    <div class="header">
-        <h1>Subscribe now</h1>
+  <div class="header">
+    <h1>Subscribe now</h1>
     <p>Here goes advantages of subcription</p>
+  </div>
+
+  <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
+    <div class="cardCont">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="your name"
+          disabled
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="your email"
+          disabled
+        />
+      </div>
+      <div id="card-element" class="field"></div>
+      <button type="submit">
+        Subscribe
+      </button>
     </div>
-    
+  </form>
 </div>
+
