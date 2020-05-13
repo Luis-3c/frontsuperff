@@ -4,6 +4,7 @@ import {IndexComponent} from './components/pages/index/index.component';
 import { VideoindexComponent } from './components/pages/videoindex/videoindex.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { SigninComponent } from './components/pages/signin/signin.component';
+import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'subscription',
+    component: SubscriptionComponent
   }
 ];
 

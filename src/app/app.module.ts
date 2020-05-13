@@ -13,6 +13,7 @@ import { VideoindexComponent } from './components/pages/videoindex/videoindex.co
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SigninComponent } from './components/pages/signin/signin.component';
+import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SigninComponent } from './components/pages/signin/signin.component';
     VideoindexComponent,
     SignupComponent,
     LoaderComponent,
-    SigninComponent
+    SigninComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
