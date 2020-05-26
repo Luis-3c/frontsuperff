@@ -49,13 +49,13 @@ export class VideoindexComponent implements OnInit {
         description: 'Some quick example text to build on the card title and make up the bulk of the cards content 3.',
         url: '' 
       },
-      {
+      /* {
         id: 5,
         image: '',
         title: 'Video title 5',
         description: 'Some quick example text to build on the card title and make up the bulk of the cards content 3.',
         url: '' 
-      }];
+      } */];
       this.loading = false;
     },5000);
     

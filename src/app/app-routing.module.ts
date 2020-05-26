@@ -5,6 +5,7 @@ import { VideoindexComponent } from './components/pages/videoindex/videoindex.co
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { SigninComponent } from './components/pages/signin/signin.component';
 import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
+import { AccountvComponent } from './components/pages/accountv/accountv.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +26,9 @@ const routes: Routes = [
   {
     path: 'subscription',
     component: SubscriptionComponent
+  },{
+    path: 'verification',
+    component: AccountvComponent
   }
 ];
 

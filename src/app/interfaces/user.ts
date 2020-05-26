@@ -12,3 +12,22 @@ export interface User {
     idsubscription?: number,
     idrole?: number
 }
+
+export interface userDataLogin{
+    first_name: string,
+    last_name: string,
+    email: string,
+    accessToken: string,
+    expiresIn: string
+}
+
+export interface userSignIn{
+    email: String,
+    password: String
+}
+
+export interface userInfo {
+    first_name: string,
+    last_name: string,
+    email: string
+}

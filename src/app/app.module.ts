@@ -15,6 +15,10 @@ import { SignupComponent } from './components/pages/signup/signup.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SigninComponent } from './components/pages/signin/signin.component';
 import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AccountvComponent } from './components/pages/accountv/accountv.component';
+
 
 @NgModule({
   declarations: [
@@ -27,16 +31,24 @@ import { SubscriptionComponent } from './components/pages/subscription/subscript
     SignupComponent,
     LoaderComponent,
     SigninComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    AccountvComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     NgxStripeModule.forRoot('pk_test_OPZ1ATnLOl8lksdtMwg2Dw9900Mj83naSI')
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

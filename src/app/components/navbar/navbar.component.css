@@ -11,8 +11,9 @@
 
 .navbar-custom{
     background-color: #d12323;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
+    position: sticky;
 }
 .navbar-custom a {
     color: white;

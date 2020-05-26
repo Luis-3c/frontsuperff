@@ -10,7 +10,6 @@ import { Video } from '../../../../interfaces/video';
 export class VidcardindexComponent implements OnInit {
 @Input() videoList : Video[];
   constructor() { 
-    console.log(this.videoList);
   }
 
   ngOnInit(): void {

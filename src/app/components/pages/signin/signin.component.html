@@ -1,10 +1,17 @@
-<div class="maincont">
+<div class="maincont2">
     <div class="container register-form col-md-4">
       <div class="form">
         <div class="note">
           <h4><p>Sign in.</p></h4>
         </div>
         <div class="form-content">
+          <div class="loaderCont" *ngIf="loading; else showForm"> 
+            <app-loader></app-loader>
+          </div>
+          <ng-template #showForm >
+          <div class="text-danger" *ngIf="error">
+            <p><b>{{errorMessage}}</b></p>
+          </div>        
           <form #loginForm="ngForm" (ngSubmit)="signin()">
             <div class="row">                            
               <div class="col-md-12">
@@ -13,7 +20,7 @@
                     type="email"
                     class="form-control"
                     name="email"
-                    [(ngModel)]="email" 
+                    [(ngModel)]="user.email" 
                     placeholder="Email"
                     value=""
                     pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
@@ -32,18 +39,17 @@
                     class="form-control"
                     name="password"
                     id="password"
-                    [(ngModel)]="pass1" 
+                    [(ngModel)]="user.password"
                     placeholder="Password"
                     value=""
-                    required
-                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
-                    #password = "ngModel"                                 
+                    required                            
                   />
                 </div>
               </div>
             </div>
             <button type="submit" class="btnSubmit" [disabled]="!loginForm.valid">Sign In</button>
           </form>
+        </ng-template>
         </div>
       </div>
     </div>

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
+import { userInfo} from '../../interfaces/user';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +11,9 @@ import { HostListener } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  @Input() userinfo: userInfo;
+
+  constructor(private router: Router, private appcomponent: AppComponent) { }
 
   ngOnInit(): void {
   }
@@ -19,12 +24,20 @@ export class NavbarComponent implements OnInit {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const element = document.querySelector('.navbar');
     if (number > 100) {
-      console.log('You are 100px from the top to bottom');
       element.classList.add('navbar-inverse');
     } else {
       element.classList.remove('navbar-inverse');
     }
 
+  }
+
+   checkLogged(): Boolean{
+    return this.appcomponent.checkLogged();
+  }
+ 
+  signOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
   }
 
 

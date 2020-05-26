@@ -110,5 +110,5 @@ a.socialIcon:hover, .socialHoverClass {
 
 #sticky-footer {
     background: rgb(85,84,0);
-    background: linear-gradient(90deg, rgb(27, 25, 24) 0%, rgb(17, 17, 16) 48%, rgb(31, 27, 27) 100%);
+    background: linear-gradient(90deg, rgb(26, 24, 24) 0%, rgb(32, 32, 31) 48%, rgb(26, 24, 24) 100%);
 }

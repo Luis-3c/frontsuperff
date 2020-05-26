@@ -2,6 +2,17 @@
     <a class="navbar-brand" style="margin-left: 16%;" href="#"
       ><img class="logo" src="assets/img/superfly-07.png"
     /></a>
+    <ul class="navbar-nav ml-4">
+      <li class="nav-item">
+        <a class="nav-link" href="#aboutme">About me</a>
+      </li>
+      <li class="nav-item ml-4">
+        <a class="nav-link" href="#premium">Premium</a>
+      </li>
+      <li class="nav-item ml-4">
+        <a class="nav-link" href="#contact">Contact</a>
+      </li>
+    </ul>  
     <button
       class="navbar-toggler"
       type="button"
@@ -14,16 +25,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto" style="margin-right: 19%;">
+      <ul class="navbar-nav ml-auto" style="margin-right: 19%;" *ngIf="!checkLogged(); else navLogged">
         <li class="nav-item">
           <a class="nav-link" routerLink="/videos">Videos</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link ml-4" routerLink="/bio">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link ml-4" routerLink="/signup">Diets</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link ml-4" routerLink="/signup">Sign Up</a>
         </li>
@@ -31,5 +42,28 @@
           <a class="nav-link ml-4" routerLink="/signin">Sign In</a>
         </li>
       </ul>
+
+      <ng-template #navLogged>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link ml-4">Hi {{userinfo.first_name}}</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" style="margin-right: 19%;">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/videos">Videos</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link ml-4" routerLink="/bio">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ml-4" routerLink="/signup">Diets</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link ml-4" (click)="signOut()">Sign out</a>
+          </li>
+        </ul>
+      </ng-template>
+
     </div>
   </nav>

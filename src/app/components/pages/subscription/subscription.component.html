@@ -5,30 +5,54 @@
   </div>
 
   <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
-    <div class="cardCont">
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          formControlName="name"
-          placeholder="your name"
-          disabled
-        />
+    <div class="cardCont" *ngIf="!error && !success; else showResponse">
+      <div *ngIf="!loadingPage; else loading">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="your name"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="your email"
+            disabled
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          placeholder="your email"
-          disabled
-        />
-      </div>
+      <ng-template #loading>
+        <div class="loaderCont">
+          <app-loader></app-loader>
+        </div>
+      </ng-template>
+      -
+
       <div id="card-element" class="field"></div>
       <button type="submit">
         Subscribe
       </button>
     </div>
+    <ng-template #showResponse>
+      <div class="resCont" *ngIf="success; else error">
+        <h3>{{responseMessage}}</h3>
+      </div>
+      <ng-template #error>
+        <div class="text-danger resCont">
+          <h2>{{responseMessage}}</h2>
+        </div>
+      </ng-template>
+    </ng-template>
   </form>
 </div>
 
+<!-- <ng-template #loadingForm>
+  <div class="loadingPage">
+    <app-loader></app-loader>
+  </div>
+</ng-template> -->

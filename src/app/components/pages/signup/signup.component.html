@@ -6,171 +6,183 @@
       </div>
 
       <div class="form-content">
-        <form #registerForm="ngForm" (ngSubmit)="signup()">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="firstname"
-                  id="firstname"
-                  [(ngModel)]="user.first_name"
-                  placeholder="First Name"
-                  value=""
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="lastname"
-                  [(ngModel)]="user.last_name"
-                  placeholder="Last Name"
-                  value=""
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  [(ngModel)]="user.email"
-                  placeholder="Email"
-                  value=""
-                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                  required
-                  #emailt="ngModel"
-                />
-              </div>
-            </div>
-            <div class="text-danger" *ngIf="emailt.errors?.pattern">
-              <p><b>Invalid email address.</b></p>
-            </div>
-            <div class="col-md-12">
-              <label for="">Birthdate:</label>
-            </div>
-            <div class="col-md-12">
-              <div class="row">
-                <div class="form-group col-md-4">
+        <div class="loaderCont" *ngIf="loading; else registerForm">
+          <app-loader></app-loader>
+        </div>
+        <ng-template #registerForm>
+          <form #registerForm="ngForm" (ngSubmit)="signup()" *ngIf="!registered && !error; else response">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
                   <input
-                    type="number"
+                    type="text"
                     class="form-control"
-                    name="day"
-                    id="day"
-                    [(ngModel)]="day"
-                    placeholder="Day"
+                    name="firstname"
+                    id="firstname"
+                    [(ngModel)]="user.first_name"
+                    placeholder="First Name"
+                    value=""
+                    required
                   />
                 </div>
-                <div class="form-group col-md-4">
-                  <select
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input
+                    type="text"
                     class="form-control"
-                    name="month"
-                    id="month"
-                    [(ngModel)]="month"
-                    
-                  >
-                    <option value="0">Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">Abril</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
+                    name="lastname"
+                    [(ngModel)]="user.last_name"
+                    placeholder="Last Name"
+                    value=""
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    [(ngModel)]="user.email"
+                    placeholder="Email"
+                    value=""
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                    required
+                    #emailt="ngModel"
+                  />
+                </div>
+              </div>
+              <div class="text-danger" *ngIf="emailt.errors?.pattern">
+                <p><b>Invalid email address.</b></p>
+              </div>
+              <div *ngIf="emailTaken" class="text-danger">
+                <p><b>{{responseMessage}}</b></p>
+              </div>
+              <div class="col-md-12">
+                <label for="">Birthdate:</label>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="day"
+                      id="day"
+                      [(ngModel)]="day"
+                      placeholder="Day"
+                    />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <select
+                      class="form-control"
+                      name="month"
+                      id="month"
+                      [(ngModel)]="month"
+                    >
+                      <option value="0">Month</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">Abril</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="year"
+                      id="year"
+                      [(ngModel)]="year"
+                      placeholder="Year"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="text-danger" *ngIf="invalidDate">
+                <p>
+                  <b>Birthdate is not valid.</b>
+                </p>
+              </div>
+              <div class="col-md-12">
+                <label for="">My goal: </label>
+              </div>
+              <div class="col-md 12">
+                <div class="form-group">
+                  <select class="form-control" name="" id="">
+                    <option value="">lose weight. </option>
                   </select>
                 </div>
-                <div class="form-group col-md-4">
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
                   <input
-                    type="number"
+                    type="password"
                     class="form-control"
-                    name="year"
-                    id="year"
-                    [(ngModel)]="year"
-                    placeholder="Year"
+                    name="password"
+                    id="password"
+                    [(ngModel)]="user.password"
+                    placeholder="Password"
+                    value=""
+                    required
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                    #password="ngModel"
                   />
                 </div>
               </div>
-            </div>
-            <div class="text-danger" *ngIf="invalidDate">
-              <p>
-                <b
-                  >Birthdate is not valid.</b
-                >
-              </p>
-            </div>
-            <div class="col-md-12">
-              <label for="">My goal: </label>
-            </div>
-            <div class="col-md 12">
-              <div class="form-group">
-                <select class="form-control" name="" id="">
-                  <option value="">subir</option>
-                  <option value="">bajar</option>
-                </select>
+              <div class="text-danger" *ngIf="password.errors?.pattern">
+                <p>
+                  <b
+                    >password must be at least 8 characters long. It must
+                    include uppercase, lowercase, symbols and numbers.</b
+                  >
+                </p>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="confirmPass"
+                    [(ngModel)]="confirmPass"
+                    (input)="comparePass($event.target.value)"
+                    placeholder="Confirm Password"
+                    value=""
+                    required
+                  />
+                </div>
+                <div *ngIf="!correctPasswords" class="text-danger">
+                  <p><b>Passwords do not match.</b></p>
+                </div>
               </div>
             </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  name="password"
-                  id="password"
-                  [(ngModel)]="user.password"
-                  placeholder="Password"
-                  value=""
-                  required
-                  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
-                  #password="ngModel"
-                />
-              </div>
+            <button
+              type="submit"
+              class="btnSubmit"
+              [disabled]="!registerForm.valid || !correctPasswords"
+            >
+              Register
+            </button>
+          </form>
+          <ng-template #response>
+            <div *ngIf="registered">
+              <p><b>{{responseMessage}}</b></p>
             </div>
-            <div class="text-danger" *ngIf="password.errors?.pattern">
-              <p>
-                <b
-                  >password must be at least 8 characters long. It must include
-                  uppercase, lowercase, symbols and numbers.</b
-                >
-              </p>
+            <div class="text-danger" *ngIf="error">
+              <p><b>{{responseMessage}}</b></p>
             </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  name="confirmPass"
-                  [(ngModel)]="confirmPass"
-                  (input)="comparePass($event.target.value)"
-                  placeholder="Confirm Password"
-                  value=""
-                  required
-                />
-              </div>
-              <div *ngIf="!correctPasswords" class="text-danger">
-                <p><b>Passwords do not match.</b></p>
-              </div>
-            </div>
-          </div>
-          <button
-            type="submit"
-            class="btnSubmit"
-            [disabled]="!registerForm.valid || !correctPasswords"
-          >
-            Register
-          </button>
-        </form>
+          </ng-template>
+        </ng-template>
       </div>
     </div>
   </div>
