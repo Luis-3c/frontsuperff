@@ -1,12 +1,12 @@
 <div class="subsCont">
   <div class="header">
-    <h1>Subscribe now</h1>
-    <p>Here goes advantages of subcription</p>
+    <h1>Subscribe now</h1>    
   </div>
 
   <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
     <div class="cardCont" *ngIf="!error && !success; else showResponse">
       <div *ngIf="!loadingPage; else loading">
+        <h3>Start a new life right now</h3>
         <div class="form-group">
           <input
             type="text"
@@ -31,9 +31,14 @@
           <app-loader></app-loader>
         </div>
       </ng-template>
-      -
+      
 
-      <div id="card-element" class="field"></div>
+      <i class="fa fa-cc-visa fa-3x"></i>
+      <i class="fa fa-cc-mastercard	fa-3x ml-2"></i>
+      <i class="fa fa-cc-amex	fa-3x ml-2"></i>
+
+      <div id="card-element" class="field mt-3"></div>
+      <h6><i class="fa fa-lock"></i> This is a secure and encrypted payment. We never store your credit card information.</h6>
       <button type="submit">
         Subscribe
       </button>
