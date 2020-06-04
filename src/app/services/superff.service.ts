@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SuperffService {
 
-  readonly API_URL = "http://localhost:3000";
+  readonly API_URL = "https://superflyfitnessapi.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
