@@ -5,7 +5,6 @@ import { SuperffService } from 'src/app/services/superff.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { userInfo } from '../../../interfaces/user';
-import { error } from 'protractor';
 
 @Component({
   selector: 'app-subscription',
