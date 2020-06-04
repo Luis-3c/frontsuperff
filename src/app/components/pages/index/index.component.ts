@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Video} from '../../../interfaces/video';
+import { AppComponent } from '../../../app.component';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -8,7 +9,8 @@ import { Video} from '../../../interfaces/video';
 export class IndexComponent implements OnInit {
   videoList: Video[];
 
-  constructor() {
+  constructor(private appcomponent: AppComponent) {
+    appcomponent.getUserInfo();
     /* this.videoList = [{
       id: 1,
       image: '',
