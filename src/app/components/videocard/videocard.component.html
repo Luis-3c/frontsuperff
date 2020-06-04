@@ -1,0 +1,31 @@
+<a routerLink="/video/{{v.id}}">
+  <div class="card">
+    <div class="row">
+      <div class="col-sm-12">
+         <div class="img-wrap">
+          <img
+          src={{v.thumbnail}}
+          class="card-img-top"
+          width="100%"
+          height="60%"
+          alt="..."
+        />
+        <div class="play-text">
+          <H1><b>PLAY</b></H1>
+        </div>
+         </div>
+        <div class="card-body" >
+          <h6 title="{{v.title}}" class="card-title mt-2">
+            <!-- <b>{{ v.title }}</b> -->
+            <b>{{ (v.title.length>60)? (v.title | slice:0:60)+'...':(v.title) }}</b>
+          </h6>
+          <!-- <p class="card-text">{{ v.description }}</p> -->
+              <p class="hace">{{v.timeago}}</p>
+        </div>
+        <!-- <div class="card-footer">
+          <a href="#" class="btn btn-danger">Play</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</a>

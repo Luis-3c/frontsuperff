@@ -18,6 +18,11 @@ import { SubscriptionComponent } from './components/pages/subscription/subscript
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { AccountvComponent } from './components/pages/accountv/accountv.component';
+import { VideoComponent } from './components/pages/video/video.component';
+import { VideoindexcardComponent } from './components/videoindexcard/videoindexcard.component';
+import { VideocardComponent } from './components/videocard/videocard.component';
+import { SafePipe } from './pipes/safe.pipe';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 @NgModule({
@@ -32,7 +37,11 @@ import { AccountvComponent } from './components/pages/accountv/accountv.componen
     LoaderComponent,
     SigninComponent,
     SubscriptionComponent,
-    AccountvComponent
+    AccountvComponent,
+    VideoComponent,
+    VideoindexcardComponent,
+    VideocardComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,8 @@ import { AccountvComponent } from './components/pages/accountv/accountv.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxStripeModule.forRoot('pk_test_OPZ1ATnLOl8lksdtMwg2Dw9900Mj83naSI')
+    NgxStripeModule.forRoot('pk_test_OPZ1ATnLOl8lksdtMwg2Dw9900Mj83naSI'),
+    NgxPaginationModule
   ],
   providers: [
     {

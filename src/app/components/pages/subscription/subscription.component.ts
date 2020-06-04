@@ -58,7 +58,7 @@ export class SubscriptionComponent implements OnInit {
     });
   }
 
-  buy(){
+  buy(){//manda llamar el servicio de suscripcion
     this.loadingPage = true;
     const name= this.stripeTest.get('name').value;
     const email = this.stripeTest.get('email').value;
@@ -83,7 +83,7 @@ export class SubscriptionComponent implements OnInit {
     })
   }
 
-  loadPage(){
+  loadPage(){//manda llamar el servicio para saber si ya esta suscrito y saber si hay que mostrar la pagina o no
     this.superffservice.subscription().subscribe((data: any)=>{
       if(data.response == 'stop'){
         this.router.navigate(['']);

@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @HostListener("window:scroll", [])
+  @HostListener("window:scroll", []) // cambia de color el navbar cuando hay un deslizamiento hacia abajo
   onWindowScroll() {
 
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;

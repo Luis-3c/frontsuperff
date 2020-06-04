@@ -9,7 +9,7 @@ export class IndexComponent implements OnInit {
   videoList: Video[];
 
   constructor() {
-    this.videoList = [{
+    /* this.videoList = [{
       id: 1,
       image: '',
       title: 'Video title',
@@ -28,7 +28,7 @@ export class IndexComponent implements OnInit {
       title: 'Video title 3',
       description: 'Some quick example text to build on the card title and make up the bulk of the cards content 3.',
       url: '' 
-    }];
+    }]; */
    }
 
   ngOnInit(): void {

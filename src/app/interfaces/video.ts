@@ -1,8 +1,11 @@
 export interface Video {
     id?: number;
-    title: String;
-    url: String;
-    description: String;
-    image: String;
-    id_category?: number    
+    idvideo: number;
+    title: string;
+    description: string;
+    id_category?: number;
+    created_at?: string;
+    updated_at?: string;
+    thumbnail: string;    
+    timeago?: string;
 }

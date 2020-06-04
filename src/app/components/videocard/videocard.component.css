@@ -1,0 +1,50 @@
+.card {
+  /* background-color: rgb(88, 75, 75); */
+  background-color: transparent;
+  color: white;
+  height: 100%;
+  margin-bottom: 3%;
+}
+
+.card-body {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  padding: 1%;
+}
+
+.hace {
+  font-size: 15px;
+  color: rgb(207, 207, 207);
+}
+
+.miniature {
+  background-color: teal;
+}
+.card:hover .card-img-top {
+  filter: brightness(65%);
+}
+
+.img-wrap {
+  position: relative;
+}
+
+.play-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  visibility: hidden;
+}
+
+.card:hover .play-text {
+    visibility: visible;
+    color: white;
+}
+
+a {
+  text-decoration: none;
+}

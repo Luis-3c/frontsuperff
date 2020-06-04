@@ -1,15 +1,70 @@
-.vidindexContainer{
-    width: 100%;
-    background-color: rgb(46, 42, 42);
-    padding-top: 10%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 4%;
-    font-family: 'PT Sans', sans-serif;
+.container-fluid {
+    padding: 3% 0 0 0;
+    /* background-color: rgb(46, 42, 42); */
+    background-color: rgb(36, 33, 33);
 }
 
-.card {
-    background-color: rgb(88, 75, 75);
+.vidindexContainer{
+    width: 95%;
+    margin: 0 auto 0 auto;
+    padding-bottom: 4%;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+/* ESTILOS BUSCADOR-----------------*/
+
+.buscador {
+    width: 35%;    
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.padding-0 {
+    padding: 0;
+}
+
+.searcher {
+    width: 100%;
+    height: 6vh;
+    border:1px solid rgb(221, 214, 214);
+    border-radius: 0;
+    background-color: rgb(20, 19, 19);
+    color: white;
+
+}
+
+.fa-search {
+    color: rgb(204, 204, 204);
+} 
+
+.btn-search {
+    width: 100%;
+    height: 6vh;
+    border-radius: 0;
+    border:1px solid rgb(211, 214, 214);
+    background-color: rgb(58, 53, 53);
+    color: white
+}
+
+.btn-search:hover  .fa-search {
     color: white;
 }
 
+.search-results {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+/*-----------------------------------*/
+
+
+/*---------------load more ---------------*/
+.loadmore-cont {
+    width: 100%;
+    margin-top: 3%;
+}
+
+/* .btnloadmore {
+} */

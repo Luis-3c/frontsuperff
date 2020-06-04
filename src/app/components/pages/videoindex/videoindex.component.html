@@ -1,35 +1,96 @@
-<div class="vidindexContainer">
-  <div class="loaderCont" style="height: 960px;" *ngIf="loading; else videoCards">
+<div class="container-fluid" id="container">
+
+  <div
+    class="loaderCont"
+    style="height: 100vh;"
+    *ngIf="loadingPage; else fullAccessTemplate"
+  >
     <div class="row">
-      <div class="col"><app-loader></app-loader></div>
-      <div class="col"><app-loader></app-loader></div>
-      <div class="col"><app-loader></app-loader></div>
-    </div>    
+      <div class="col-sm-12"><app-loader></app-loader></div>
+    </div>
   </div>
-  <ng-template #videoCards>
-    <div class="row">
-      <div class="col mt-3" *ngFor="let v of videoList">
-        <div class="card" style="width: 22rem;">
-          <div class="row">
-            <div class="col-sm-12">
-              <img
-                src="https://i.vimeocdn.com/video/549119976_640.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">
-                  <b>{{ v.title }}</b>
-                </h5>
-                <p class="card-text">{{ v.description }}</p>
+
+  <ng-template #fullAccessTemplate>
+    <div class="vidindexContainer" *ngIf="fullAccess; else limitAccessTemplate">
+      <div class="buscador padding-0">
+        <div class="container">
+          <form #searchForm="ngForm" (ngSubmit)="search()">
+            <div class="row">
+              <div class="col-8 col-md-10 padding-0">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control searcher"
+                    name="input"
+                    [(ngModel)]="searcher.input"
+                    placeholder="Search ..."
+                    required
+                  />
+                </div>
               </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-danger">Play</a>
+              <div class="col-4 col-md-2 padding-0">
+                <button
+                  type="submit"
+                  class="btn btn-search"
+                  [disabled]="!searchForm.valid"
+                >
+                  <i class="fa fa-search fa-1x" aria-hidden="true"></i>
+                </button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
+  
+      <div
+        class="loaderCont"
+        style="height: 100vh;"
+        *ngIf="loading; else videoCards"
+      >
+        <div class="row">
+          <div class="col-sm-4"><app-loader></app-loader></div>
+          <div class="col-sm-4"><app-loader></app-loader></div>
+          <div class="col-sm-4"><app-loader></app-loader></div>
+        </div>
+      </div>
+  
+      <ng-template #videoCards>
+        <div class="row">
+          <div class="col-sm-3" *ngFor="let v of videoList['videos']">
+            <app-videoindexcard [v]="v"></app-videoindexcard>
+          </div>
+          <div class="col-sm-12 search-results" *ngIf="emptyvideos">
+            <h6>{{ errorMessage }}</h6>
+          </div>
+        </div>
+        <div class="loadmore-cont" *ngIf="!loadingmore; else loadingMore">
+          <!-- <button class="btn btn-dark btn-block" (click)="loadmore()" *ngIf="!emptyvideos">
+            Load more ...
+          </button> -->
+          <div
+            class="text-danger mt-2"
+            *ngIf="error"
+            style="display: flex; justify-content: center;"
+          >
+            <p>{{ errorMessage }}</p>
+          </div>
+        </div>
+        <ng-template #loadingMore>
+          <div class="row">
+            <div
+              class="col-sm-12"
+              style="display: flex; justify-content: center;"
+            >
+              <app-loader></app-loader>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
     </div>
+    <ng-template #limitAccessTemplate>
+      <div style="color: white;">
+        LIMIT ACCESS.
+      </div>
+    </ng-template>
   </ng-template>
 </div>

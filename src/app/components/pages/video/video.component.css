@@ -1,0 +1,120 @@
+.container-fluid {
+  background-color: rgb(36, 33, 33);
+  /* background-color: rgb(31, 29, 29); */
+  padding-top: 1%;
+  padding-bottom: 6%;
+}
+
+.maincont {
+  background-color: rgb(36, 33, 33);
+  padding-top: 3%;
+  padding-bottom: 6%;
+}
+
+.videoCont {
+  width: 80%;
+  /* background-color: rgb(221, 221, 221); */
+  margin: 0 auto 4% auto;
+}
+
+.videoCont hr {
+  border: 0.1px solid rgb(85, 81, 81);
+  margin: 1% 9% 0 9%;
+}
+
+.reproductor {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-top: 47%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+.info {
+  margin-top: 1%;
+}
+.titleCont {
+  /* background-color: tomato; */
+  padding-left: 10%;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: white;
+}
+
+.dateCont {
+  /* background-color: turquoise; */
+  text-align: right;
+  padding-right: 10%;
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  color: white;
+  font-size: 15px;
+}
+
+.descCont {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  color: white;
+  margin-top: 1%;
+  font-size: 17px;
+  /* background-color: tomato; */
+}
+
+.videoList {
+  width: 100%;
+  /* height: 300px; */
+  /*  background: linear-gradient(rgb(34, 31, 30), rgb(34, 31, 30)); */
+  /* background-color: rgb(30, 33, 34); */
+}
+
+.flechaizquierda {
+  background-color: brown;
+}
+.videosCont {
+  width: 60%;
+}
+
+.flechaderecha {
+  background-color: chartreuse;
+}
+
+.fa-angle-double-left {
+  color: rgb(216, 207, 207);
+}
+
+.fa-angle-double-right {
+  color: rgb(216, 207, 207);
+}
+
+.fa-angle-double-left:hover {
+  color: white;
+}
+
+.fa-angle-double-right:hover {
+  color: white;
+}
+
+.flechacont {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrap {
+  width: 100%;
+  position: relative;
+}
+
+.loader-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
