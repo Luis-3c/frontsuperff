@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Video } from '../../../interfaces/video';
 import { ActivatedRoute } from '@angular/router';
 import { SuperffService } from '../../../services/superff.service';
+import { AppComponent } from '../../../app.component';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-video',
@@ -18,7 +20,7 @@ export class VideoComponent implements OnInit {
 	pageActual: number = 1;
 	pagesCount: number = 1;
 
-	constructor(private route: ActivatedRoute, private sffservice: SuperffService) {}
+	constructor(private route: ActivatedRoute, private sffservice: SuperffService, public app: AppComponent, private router : Router) {}
 
 	/*  @HostListener("window:scroll", []) // cambia de color el navbar cuando hay un deslizamiento hacia abajo
   onWindowScroll() {
@@ -85,7 +87,11 @@ export class VideoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.loadingVid = true;
+		this.loadPage();
+  }
+  
+  loadVideos(){
+    this.loadingVid = true;
 		this.route.params.subscribe((params) => {
 			this.idvideo = params['id'];
 			this.sffservice.getvideo(this.idvideo).subscribe((data: Video) => {
@@ -95,7 +101,7 @@ export class VideoComponent implements OnInit {
 			});
 		});
 		this.getVideoList();
-	}
+  }
 
 	loadRight() {
 		if (this.pagesCount > this.pageActual) {
@@ -116,5 +122,26 @@ export class VideoComponent implements OnInit {
     if (this.pageActual > 1){
     this.pageActual = this.pageActual - 1;
     }
-	}
+  }
+  
+  loadPage(){
+    if(!this.app.fullAccess){
+      if(localStorage.getItem('token')){
+        this.sffservice.subscription().subscribe((data:any)=>{
+          if(data.response === 'continue'){
+            this.router.navigate(['subscription']);
+          }else{
+            this.loadVideos();
+          }
+        },(error)=>{
+          if(error.status === 401){
+            localStorage.removeItem('token');
+            this.router.navigate(['signin']);
+          }
+        });
+      }else this.router.navigate(['signin']);
+    }else{
+      this.loadVideos();
+    }
+  }
 }

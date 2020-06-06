@@ -72,7 +72,7 @@ export class SubscriptionComponent implements OnInit {
         }, (error)=>{
           this.loadingPage = false;
           this.error = true;
-          this.responseMessage = error.error.message;
+          this.responseMessage = error.error.response;
         });
       }else if(result.error){
         this.loadingPage = false;

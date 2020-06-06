@@ -17,24 +17,55 @@ export class AppComponent {
     email: null
   }
 
+  fullAccess : boolean;
+
   constructor(private superffservice: SuperffService){
     this.getUserInfo();
   }
 
   getUserInfo(){
-    if (this.checkLogged){
+    console.log('llega a userinfo');
+    if (this.checkLogged()){
+      console.log('fullaccess: ', this.fullAccess)
       this.superffservice.getUserInfo().subscribe((data: userInfo)=>{
+        console.log('llega user info');
         this.userinfo = data;
         console.log(this.userinfo);
+        this.loadPage();
       }, (error) => {
         if(error.status === 401){
           localStorage.removeItem('token');
         }
       });
+    }else {
+      this.fullAccess = false;
     }
   }
 
-    checkLogged(): Boolean{
+  //manda llamar el servicio para saber si el usuario esta o no suscrito
+//y asi saber que pantallas mostrar
+  loadPage(){
+    console.log('llega a load page')
+    this.superffservice.subscription().subscribe((data: any)=>{
+      if(data.response === 'continue'){// cuando el servicio regresa un continue significa que el usuario no está suscrito
+        this.fullAccess = false;
+        /* this.loadingPage = false; */
+      }else{
+        this.fullAccess = true;
+        /* this.getVideoList(); */
+        /* this.loadingPage = false; */
+      }
+    }, (error)=>{
+      if(error.status === 401){
+        localStorage.removeItem('token');
+        this.fullAccess = false;
+        /* this.loadingPage = false; */
+      }
+    });
+    //return this.fullAccess;
+  }
+
+    checkLogged(): boolean{
       if(localStorage.getItem('token')){
         return true;
       }else{
