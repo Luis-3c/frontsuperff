@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import {Video} from '../../../interfaces/video';
 import { SuperffService } from '../../../services/superff.service';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-videoindex',
@@ -11,6 +12,7 @@ export class VideoindexComponent implements OnInit {
   videoList: Video[];
   loading: boolean = false;
   loadingmore: boolean = false;
+  loadingPage: boolean = false;
   error: boolean = false;
   emptyvideos: boolean = false;
   searched: boolean = false;
@@ -21,17 +23,16 @@ export class VideoindexComponent implements OnInit {
     input: ""
   };
 
-  fullAccess : boolean;
-  loadingPage: boolean = true;
+  fullAccess : boolean;/* 
+  loadingPage: boolean = true; */
 
-  constructor(private superffservice: SuperffService) {
+  constructor(private superffservice: SuperffService, private app: AppComponent) {
 
-    this.loading = true;
-
-    this.loadPage();
    }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.loadPage();
   }
 
   getVideoList(){//obtiene la lista inicial de videos, los mas recientes
@@ -126,7 +127,7 @@ search(){ // manda llamar el servicio del buscador
 
 //manda llamar el servicio para saber si el usuario esta o no suscrito
 //y asi saber que pantalla mostrar
-loadPage(){
+/* loadPage(){
   this.superffservice.subscription().subscribe((data: any)=>{
     if(data.response === 'continue'){// cuando el servicio regresa un continue significa que el usuario no está suscrito
       this.fullAccess = false;
@@ -138,13 +139,42 @@ loadPage(){
     }
   }, (error)=>{
     if(error.status === 401){
-      if(localStorage.getItem('token')){
-        localStorage.removeItem('token');
-        this.fullAccess = false;
-        this.loadingPage = false;
-      }
+      if(localStorage.getItem('token')) localStorage.removeItem('token');
+      this.fullAccess = false;
+      this.loadingPage = false;
     }
   })
+} */
+
+loadPage(){
+  if(this.app.fullAccess){
+    this.fullAccess = true;
+    console.log('llega load page index true');
+    this.getVideoList();
+  }else{
+    if(this.app.checkLogged()){
+      this.loadingPage = true;
+      this.superffservice.subscription().subscribe((data: any) => {
+        if(data.response === 'stop'){
+          this.fullAccess = true;
+          this.loadingPage = false;
+          this.getVideoList();
+        }else{
+          this.fullAccess = false;
+          this.loadingPage = false;
+        }
+      },(error)=>{
+        if(error.status === 401){
+          localStorage.removeItem('token');
+          this.fullAccess = false;
+          this.loadingPage = false;
+        }
+      });
+    }else{
+      this.fullAccess = false;
+    }
+    // provicional
+  } /* this.fullAccess = false; */
 }
 
 }
