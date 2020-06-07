@@ -26,6 +26,16 @@ export class SuperffService {
     return this.http.get(this.API_URL + '/userinfo');
   }
 
+  newPassReq(userdata){
+    const headers = new HttpHeaders({'Content-Type': 'Application/json'});
+    return this.http.post(this.API_URL + '/newpassreq', userdata, {headers: headers});
+  }
+
+  setNewPass(userdata, token){
+    const headers = new HttpHeaders({'Content-Type': 'Application/json'});
+    return this.http.post(this.API_URL + '/setnewpass/' + token, userdata, {headers: headers});
+  }
+
   //subscription services
   subscription(){
     return this.http.get(this.API_URL + '/subscription');

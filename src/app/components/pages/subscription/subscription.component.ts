@@ -103,7 +103,7 @@ export class SubscriptionComponent implements OnInit {
                 fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
                 fontSize: '18px',
                 '::placeholder': {
-                  color: '#141212'
+                  color: '#141212',
                 }
               }
             }

@@ -31,3 +31,11 @@ export interface userInfo {
     last_name: string,
     email: string
 }
+
+export interface userEmail {
+    email: string;
+}
+
+export interface userResetPass{
+    password: string;
+}

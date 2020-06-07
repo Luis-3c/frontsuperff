@@ -1,14 +1,15 @@
 .card {
-  /* background-color: rgb(88, 75, 75); */
   background-color: transparent;
+  /* background-color: rgba(45, 45, 46, 0.692); */
   color: white;
   height: 100%;
   margin-bottom: 3%;
+  border: none;
 }
 
 .card-body {
   font-family: "IBM Plex Sans Condensed", sans-serif;
-  padding: 1%;
+  padding: 3%;
 }
 
 .hace {

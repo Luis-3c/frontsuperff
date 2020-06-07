@@ -7,6 +7,7 @@ import { SigninComponent } from './components/pages/signin/signin.component';
 import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
 import { AccountvComponent } from './components/pages/accountv/accountv.component';
 import { VideoComponent } from './components/pages/video/video.component';
+import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component';
 const routes: Routes = [
   {
     path: '',
@@ -34,6 +35,14 @@ const routes: Routes = [
   {
     path: 'video/:id',
     component: VideoComponent
+  },
+  {
+    path: 'resetpassword',
+    component: ResetpasswordComponent
+  },
+  { 
+    path: 'resetpassword/:token',
+    component: ResetpasswordComponent
   }
 ];
 

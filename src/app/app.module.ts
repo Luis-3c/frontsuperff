@@ -22,7 +22,8 @@ import { VideoComponent } from './components/pages/video/video.component';
 import { VideoindexcardComponent } from './components/videoindexcard/videoindexcard.component';
 import { VideocardComponent } from './components/videocard/videocard.component';
 import { SafePipe } from './pipes/safe.pipe';
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component'; // <-- import the module
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     VideoComponent,
     VideoindexcardComponent,
     VideocardComponent,
-    SafePipe
+    SafePipe,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

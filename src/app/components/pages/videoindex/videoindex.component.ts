@@ -155,7 +155,7 @@ loadPage(){
     if(this.app.checkLogged()){
       this.loadingPage = true;
       this.superffservice.subscription().subscribe((data: any) => {
-        if(data.response === 'stop'){
+        if(data.response === 'stop' || data.rol === 1){
           this.fullAccess = true;
           this.loadingPage = false;
           this.getVideoList();
