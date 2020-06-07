@@ -1,6 +1,6 @@
 .logo {
-    width: 140px;
-    height: 80px;;
+    width: 130px;
+    height: 70px;;
 }
 
 /* .navbar {
@@ -20,8 +20,8 @@
 }
 
 .navbar-inverse{
-    background: rgb(37, 35, 35);
-    background: linear-gradient(90deg, rgba(38,35,35,0.73) 0%, rgba(38,35,35,0.73) 100%);
+    /* background: rgb(37, 35, 35); */
+    background: linear-gradient(90deg, rgba(38, 35, 35, 0.678) 0%, rgba(38,35,35,0.678) 100%);
     color: white;
 } 
 

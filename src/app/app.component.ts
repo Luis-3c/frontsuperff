@@ -47,19 +47,15 @@ export class AppComponent {
   loadPage(){
     console.log('llega a load page')
     this.superffservice.subscription().subscribe((data: any)=>{
-      if(data.response === 'continue'){// cuando el servicio regresa un continue significa que el usuario no está suscrito
-        this.fullAccess = false;
-        /* this.loadingPage = false; */
-      }else{
+      if(data.response === 'stop' || data.rol === 1){// cuando el servicio regresa un continue significa que el usuario no está suscrito
         this.fullAccess = true;
-        /* this.getVideoList(); */
-        /* this.loadingPage = false; */
+      }else{
+        this.fullAccess = false;
       }
     }, (error)=>{
       if(error.status === 401){
         localStorage.removeItem('token');
         this.fullAccess = false;
-        /* this.loadingPage = false; */
       }
     });
     //return this.fullAccess;

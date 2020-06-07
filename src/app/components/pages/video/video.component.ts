@@ -37,7 +37,10 @@ export class VideoComponent implements OnInit {
 		this.sffservice.getvideosrecommend().subscribe((data: Video[]) => {
 			this.videoList = data;
 			console.log(data);
-			this.loadingVideos = false;
+      this.loadingVideos = false;
+      if(window.innerWidth > 600){
+      window.scrollTo(0, 130);
+      }
 		});
 		/* this.loading = true
      setTimeout(()=>{
@@ -87,7 +90,7 @@ export class VideoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.loadPage();
+    this.loadPage();
   }
   
   loadVideos(){
@@ -97,7 +100,10 @@ export class VideoComponent implements OnInit {
 			this.sffservice.getvideo(this.idvideo).subscribe((data: Video) => {
 				this.video = data;
 				this.url = 'https://player.vimeo.com/video/' + data['videos'][0].idvideo + '?autoplay=1';
-				this.loadingVid = false;
+        this.loadingVid = false;
+        if(window.innerWidth>600){
+        window.scrollTo(0, 130);
+        }else window.scrollTo(0,0);
 			});
 		});
 		this.getVideoList();
@@ -113,7 +119,7 @@ export class VideoComponent implements OnInit {
 			this.sffservice.getvideosrecommend().subscribe((data: Video[]) => {
 				this.videoList['videos'] = this.videoList['videos'].concat(data['videos']);
 				console.log(this.videoList);
-				this.loadingVideos = false;
+        this.loadingVideos = false;
 			});
 		}
 	}
@@ -128,7 +134,7 @@ export class VideoComponent implements OnInit {
     if(!this.app.fullAccess){
       if(localStorage.getItem('token')){
         this.sffservice.subscription().subscribe((data:any)=>{
-          if(data.response === 'continue'){
+          if(data.response === 'continue' && data.rol != 1){
             this.router.navigate(['subscription']);
           }else{
             this.loadVideos();
