@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const element = document.querySelector('.navbar');
-    if (number > 100) {
+    if (number > 1) {
       element.classList.add('navbar-inverse');
     } else {
       element.classList.remove('navbar-inverse');
