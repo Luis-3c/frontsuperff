@@ -35,7 +35,7 @@ export class VideoComponent implements OnInit {
 			console.log(data);
 			this.loadingVideos = false;
 			if (window.innerWidth > 600) {
-				window.scrollTo(0, 130);
+				window.scrollTo(0, 80);
 			}
 		});
 		/* this.loading = true
@@ -56,7 +56,7 @@ export class VideoComponent implements OnInit {
 				this.url = 'https://player.vimeo.com/video/' + data['videos'][0].idvideo + '?autoplay=1';
 				this.loadingVid = false;
 				if (window.innerWidth > 600) {
-					window.scrollTo(0, 130);
+					window.scrollTo(0, 80);
 				} else window.scrollTo(0, 0);
 			});
 		});
