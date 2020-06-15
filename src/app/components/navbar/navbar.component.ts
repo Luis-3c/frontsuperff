@@ -35,9 +35,13 @@ export class NavbarComponent implements OnInit {
     return this.appcomponent.checkLogged();
   }
  
-  signOut(){
+  async signOut(){
     localStorage.removeItem('token');
-    this.router.navigate(['']);
+    if(this.router.url == '/'){
+      console.log('llega aqui');
+      await this.appcomponent.getUserInfo();
+      this.router.navigate(['/']);
+    }else this.router.navigate(['/']);
   }
 
 

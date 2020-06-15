@@ -96,7 +96,7 @@ export class SubscriptionComponent implements OnInit {
           this.card = this.elements.create('card', {
             style: {
               base: {
-                iconColor: '#666EE8',
+                iconColor: '#034663',
                 color: '#31325F',
                 lineHeight: '40px',
                 fontWeight: 300,

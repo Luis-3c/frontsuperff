@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="prof-cont">
+    <div class="row">
+      <div class="col-5 col-sm-2" style="padding: 0;">
+        <ul class="nav flex-column">
+          <li class="nav-item mt-5 option1 active" (click)="select('option1')">
+            <a class="nav-link disabled" href="#">My info</a>
+          </li>
+          <li class="nav-item mt-2 option2" (click)="select('option2')">
+            <a class="nav-link disabled" href="#">Subscription</a>
+          </li>
+          <li class="nav-item mt-2 option3" (click)="select('option3')">
+            <a class="nav-link disabled" href="#">Link</a>
+          </li>
+          <li class="nav-item mt-2 option4" (click)="select('option4')">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-7 col-sm-10 content-cont" style="padding: 0;">
+        <div *ngIf="option == 1">
+          <app-myinfo></app-myinfo>
+        </div>
+        <div *ngIf="option == 2">
+          <app-myplan></app-myplan>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

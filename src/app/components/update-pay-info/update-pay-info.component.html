@@ -1,12 +1,8 @@
-<div class="subsCont">
-  <div class="header">
-    <h1>Subscribe</h1>    
-  </div>
 
-  <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
-    <div class="cardCont" *ngIf="!error && !success; else showResponse">
+  <form novalidate (ngSubmit)="update()" [formGroup]="stripeTest">
+    <div class="cardCont2" *ngIf="!error && !success; else showResponse">
       <div *ngIf="!loadingPage; else loading">
-        <h3>Start a new life right now</h3>
+        <h3>Update your payment info</h3>
         <div class="form-group">
           <input
             type="text"
@@ -38,13 +34,32 @@
       <i class="fa fa-cc-amex	fa-3x ml-2"></i>
 
       <h6 class="mt-3">Please enter your card info.</h6>
-      <div class="card-container" style="background-color: white;">
-        <div id="card-element" class="field mt-3"></div>
+      <div class="car-cont" style="background-color: white;">
+        <div id="card-element" class="field mt-1"></div>
       </div>
+      <h6 class="mt-3">Please enter your password.</h6>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          placeholder="Password"
+          formControlName="pass"
+          value=""
+          required                            
+        />
+      </div>
+      <p class="text-danger" *ngIf="passError">
+          {{responseMessage}}
+      </p>
       <h6><i class="fa fa-lock"></i> This is a secure and encrypted payment. We never store your credit card information.</h6>
-      <button type="submit">
-        Subscribe
+      <button class="btn-update" type="submit">
+        Update
       </button>
+     <!--  <button class="btn-cancel" (click)="cancel()">
+        Cancel
+      </button> -->
     </div>
     <ng-template #showResponse>
       <div class="resCont" *ngIf="success; else error">
@@ -57,10 +72,3 @@
       </ng-template>
     </ng-template>
   </form>
-</div>
-
-<!-- <ng-template #loadingForm>
-  <div class="loadingPage">
-    <app-loader></app-loader>
-  </div>
-</ng-template> -->

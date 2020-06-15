@@ -46,6 +46,15 @@ export class SuperffService {
     return this.http.post(this.API_URL + '/subscribe', userData, {headers: headers});
   }
 
+  getCustomInfo(){
+    return this.http.get(this.API_URL + '/custominfo');
+  }
+
+  updatePayInfo(customData){
+    const headers = new HttpHeaders({'Content-Type':'Application/json'});
+    return this.http.post(this.API_URL + '/customcardupdate', customData, {headers: headers});
+  }
+
   //videos services
   getvideosIndex(){
     return this.http.get(this.API_URL + '/videos/index');

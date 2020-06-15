@@ -1,0 +1,38 @@
+<div class="myplan-cont">
+  <div class="subscribed" *ngIf="app.fullAccess; else notSubscribed">
+    <div class="subscribed-banner mt-5">
+      <h4>YOU ARE SUBSCRIBED</h4>
+      <h5>Access to all content</h5>
+    </div>
+    <div class="loader-cont mt-4" *ngIf="loading" style="text-align: center;">
+        <app-loader></app-loader>
+    </div>
+    <div class="subscribed-body mt-4" *ngFor="let p of paymentInfo">
+      <h4><b>Payment:</b></h4>
+      <p class="mt-3">{{ p.brand }} ending in {{ p.last4 }}</p>
+      <p>Expires: {{ p.exp_date }}</p>
+      <button class="btn btn-primary" (click)="updateInfo()">Update</button>
+    </div>
+    <div class="update-form mt-3" *ngIf="update" >
+        <app-update-pay-info></app-update-pay-info>
+    </div>
+  </div>
+
+  <ng-template #notSubscribed>
+    <div class="not-subscribed">
+      <div class="not-subscribed-banner mt-5">
+        <h4>YOU ARE NOT SUBSCRIBED</h4>
+        <h5>Access to free content only</h5>
+      </div>
+      <div class="subscribed-body mt-4" *ngIf="error">
+        <div *ngFor="let p of paymentInfo">
+          <h4><b>Payment:</b></h4>
+          <p class="text-danger mt-2">Last payment was not successfull, please check your payment info and update it</p>
+          <p class="mt-3">{{ p.brand }} ending in {{ p.last4 }}</p>
+          <p>Expires: {{ p.exp_date }}</p>
+          <button class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

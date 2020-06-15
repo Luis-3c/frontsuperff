@@ -23,7 +23,11 @@ import { VideoindexcardComponent } from './components/videoindexcard/videoindexc
 import { VideocardComponent } from './components/videocard/videocard.component';
 import { SafePipe } from './pipes/safe.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component'; // <-- import the module
+import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { MyinfoComponent } from './components/myinfo/myinfo.component';
+import { MyplanComponent } from './components/myplan/myplan.component';
+import { UpdatePayInfoComponent } from './components/update-pay-info/update-pay-info.component'; // <-- import the module
 
 
 @NgModule({
@@ -43,7 +47,11 @@ import { ResetpasswordComponent } from './components/pages/resetpassword/resetpa
     VideoindexcardComponent,
     VideocardComponent,
     SafePipe,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    ProfileComponent,
+    MyinfoComponent,
+    MyplanComponent,
+    UpdatePayInfoComponent
   ],
   imports: [
     BrowserModule,
