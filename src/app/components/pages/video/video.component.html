@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <div class="videoCont">
+    <div class="videoCont" id="videoCont">
       <div *ngIf="!loadingVid; else loadingvid">
-        <div class="reproductor">
+        <div class="reproductor" id="reproductor">
           <iframe
             class="responsive-iframe"
             [src]='url | safe'
