@@ -32,7 +32,6 @@ export class VideoComponent implements OnInit {
 		this.loadingVideos = true;
 		this.sffservice.getvideosrecommend().subscribe((data: Video[]) => {
 			this.videoList = data;
-			console.log(data);
 			this.loadingVideos = false;
 			if (window.innerWidth > 600) {
 				window.scrollTo(0, 80);
@@ -45,6 +44,16 @@ export class VideoComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.loadPage();
+		this.setPlayerSize();
+	}
+
+	// define el tamaño del reproductor dependiendo del tamaño de la pantalla
+	setPlayerSize(){
+		const videoCont = document.getElementById('videoCont')
+		if(window.innerWidth < 600){
+			videoCont.classList.remove('videoCont');
+			videoCont.classList.add('videoContMovil');
+		}
 	}
 
 	loadVideos() {
