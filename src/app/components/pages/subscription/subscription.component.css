@@ -28,6 +28,17 @@
     font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
+
+.cardCont2{
+    width: 100%;
+    margin-top: 1.5%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(228, 228, 228);
+    padding: 1.5%;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
 .cardCont button{
     background-color: rgb(14, 121, 192);
     color: white;
@@ -43,6 +54,33 @@
 }
 
 .cardCont h6 {
+    margin-top: 2%;
+}
+
+.btn-update{
+    background-color: rgb(14, 121, 192);
+    color: white;
+    border: 0px;
+    padding: 1%;
+    margin-top: 1%;
+}
+
+.btn-cancel{
+    background-color: rgb(192, 12, 36);
+    color: white;
+    border: 0px;
+    padding: 1%;
+    margin-top: 1%;
+    margin-left: 3%;
+}
+
+.cardCont2 h3 {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;  
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+.cardCont2 h6 {
     margin-top: 2%;
 }
 

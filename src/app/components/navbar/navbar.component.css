@@ -1,6 +1,6 @@
 .logo {
-    width: 130px;
-    height: 70px;;
+    width: 110px;
+    height: 55px;;
 }
 
 /* .navbar {
@@ -10,7 +10,8 @@
 } */
 
 .navbar-custom{
-    background-color: #d12323;
+    /* background-color: #d12323; */
+    background-color: rgb(202, 28, 28);
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     position: sticky;

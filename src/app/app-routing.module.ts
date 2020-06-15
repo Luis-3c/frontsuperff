@@ -8,6 +8,7 @@ import { SubscriptionComponent } from './components/pages/subscription/subscript
 import { AccountvComponent } from './components/pages/accountv/accountv.component';
 import { VideoComponent } from './components/pages/video/video.component';
 import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -43,6 +44,10 @@ const routes: Routes = [
   { 
     path: 'resetpassword/:token',
     component: ResetpasswordComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 

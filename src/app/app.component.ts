@@ -18,6 +18,7 @@ export class AppComponent {
   }
 
   fullAccess : boolean;
+  userStatus: string;
 
   constructor(private superffservice: SuperffService){
     this.getUserInfo();
@@ -49,8 +50,10 @@ export class AppComponent {
     this.superffservice.subscription().subscribe((data: any)=>{
       if(data.response === 'stop' || data.rol === 1){// cuando el servicio regresa un continue significa que el usuario no está suscrito
         this.fullAccess = true;
+        this.userStatus = data.status;
       }else{
         this.fullAccess = false;
+        this.userStatus = data.status;
       }
     }, (error)=>{
       if(error.status === 401){

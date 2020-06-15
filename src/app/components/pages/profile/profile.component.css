@@ -1,0 +1,95 @@
+.container-fluid{
+    width: 100%;
+    background-color: rgb(34, 29, 29);
+}
+
+.prof-cont {
+    width: 100%;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+.nav {
+    background-color: rgb(41, 39, 37);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    min-height: 100vh;
+}
+
+.nav-item{
+    padding-left: 5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.disabled {
+    color: white;
+}
+
+.nav-item:hover {
+    background-color: rgb(54, 86, 122);
+}
+
+.active {
+    background-color: rgb(54, 86, 122);
+}
+
+.content-cont {
+    background-color: rgb(207, 207, 207);
+}
+
+
+/*.----------------------------------*/
+
+.title-page{
+    width: 100%;
+    text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.content-page {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.form-control {
+    background-color: rgb(175, 175, 175);
+}
+ p {
+     font-size: 18px;
+ }
+
+ /*--------------subscription ------------------*/
+ .myplan-cont{
+     width: 75%;
+     margin-left: auto;
+     margin-right: auto;
+     font-family: 'IBM Plex Sans Condensed', sans-serif;
+ }
+ .subscribed-banner {
+     background: linear-gradient(rgb(25, 29, 32) 0%, rgb(68, 54, 26) 100%);
+     color: white;
+     padding: 2%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-align: center;
+    border-radius: 1%;
+    word-wrap: break-word
+ }
+
+ .not-subscribed-banner{
+    background: linear-gradient(rgb(9, 63, 105) 0%, rgb(41, 84, 117) 100%);
+    color: white;
+    padding: 2%;
+   font-family: 'IBM Plex Sans', sans-serif;
+   text-align: center;
+   border-radius: 1%;
+   word-wrap: break-word
+}
+
+.subscribed-body{
+    text-align: center;
+}
