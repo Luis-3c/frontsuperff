@@ -1,36 +1,73 @@
 <div class="container-fluid">
-    <div class="videoCont" id="videoCont">
-      <div *ngIf="!loadingVid; else loadingvid">
-        <div class="reproductor" id="reproductor">
-          <iframe
-            class="responsive-iframe"
-            [src]='url | safe'
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="row info">
-            <div class="col-sm-9 titleCont">
-                <h5>{{video['videos'][0].title}}</h5>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="videoCont" id="videoCont">
+          <div *ngIf="!loadingVid; else loadingvid">
+            <div class="reproductor" id="reproductor">
+              <iframe
+                class="responsive-iframe"
+                [src]='url | safe'
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe>
             </div>
-            <div class="col-sm-3 dateCont">
-                <p>{{video['videos'][0].created_at}}</p>
+            <div class="row info">
+                <div class="col-sm-9 titleCont">
+                    <h5>{{video['videos'][0].title}}</h5>
+                </div>
+                <div class="col-sm-3 dateCont">
+                    <p>{{video['videos'][0].created_at}}</p>
+                </div>
             </div>
-        </div>
-        <div class="row descCont">
-            <div class="col-sm-12" style="padding-left: 10%; padding-right: 10%;">
-                <p>{{video['videos'][0].description}}</p>
+            <div class="row descCont">
+                <div class="col-sm-12" style="padding-left: 4%; padding-right: 10%;">
+                    <p>{{video['videos'][0].description}}</p>
+                </div>
             </div>
+            <hr>
+          </div>
+          <ng-template #loadingvid>
+            <app-loader></app-loader>
+          </ng-template>
         </div>
-        <hr>
       </div>
-      <ng-template #loadingvid>
-        <app-loader></app-loader>
-      </ng-template>
+      <div class="col-sm-3">
+        <div class="videoList">
+          <div class="row">
+            <!-- <div class="col-sm-9">
+              <div class="flechacont">
+                <i class="fa fa-angle-double-up fa-5x" (click)="loadLeft()"></i>
+              </div>
+            </div> -->
+            <div class="col-sm-10">
+              <div class="row" *ngIf="!loadingVideos; else loaderCont">
+                <div class="col-sm-12" *ngFor="let v of videoList['videos']">
+                  <app-videocard [v]="v"></app-videocard>
+                </div>
+                <div class="col-sm-10 loader-cont" *ngIf="loadingMore">
+                  <app-loader></app-loader>
+                </div>
+              </div>
+              <ng-template #loaderCont>
+                <div class="row">
+                  <div class="col-sm-10 loader-cont">
+                    <app-loader></app-loader>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+            <!-- <div class="col-sm-9">
+              <div class="flechacont">
+                <i class="fa fa-angle-double-down fa-5x" (click)="loadRight()"></i>
+            </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
     </div>
   
-    <div class="videoList">
+   <!--  <div class="videoList">
         <div class="row">
           <div class="col-sm-1">
             <div class="flechacont">
@@ -47,7 +84,7 @@
               <div class="col-sm-12">
                 <pagination-controls class="fa fa-angle-double-left" (pageChange)="pageActual = $event"></pagination-controls>
               </div>
-            </div> -->
+            </div> 
             <ng-template #loaderCont>
               <div class="row">
                 <div class="col-md-12 loader-cont">
@@ -62,6 +99,6 @@
           </div>
           </div>
         </div> 
-    </div>      
+    </div>  -->     
 </div>
   

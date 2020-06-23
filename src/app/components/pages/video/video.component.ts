@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Video } from '../../../interfaces/video';
 import { ActivatedRoute } from '@angular/router';
 import { SuperffService } from '../../../services/superff.service';
@@ -16,9 +16,10 @@ export class VideoComponent implements OnInit {
 	url: String = null;
 	loadingVid: boolean = false;
 	loadingVideos: boolean = false;
+	loadingMore: boolean = false;
 	idvideo: String = null;
-	pageActual: number = 1;
-	pagesCount: number = 1;
+	/* pageActual: number = 1;
+	pagesCount: number = 1; */
 	loadingCount: number = 0;
 
 	constructor(
@@ -28,14 +29,25 @@ export class VideoComponent implements OnInit {
 		private router: Router
 	) {}
 
+	@HostListener('window:scroll', []) // cuando el usuario llega al final de la página carga mas videos
+	onScroll(): void {
+	
+		if (
+			window.innerHeight + window.scrollY >= document.body.offsetHeight - 50 &&
+			!this.loadingMore && !this.loadingVideos
+		) {
+			this.loadRight();
+		}
+	}
+
 	getVideoList() {
 		this.loadingVideos = true;
 		this.sffservice.getvideosrecommend().subscribe((data: Video[]) => {
 			this.videoList = data;
 			this.loadingVideos = false;
-			if (window.innerWidth > 600) {
+			/* if (window.innerWidth > 600) {
 				window.scrollTo(0, 80);
-			}
+			} */
 		});
 		/* this.loading = true
      setTimeout(()=>{
@@ -64,37 +76,27 @@ export class VideoComponent implements OnInit {
 				this.video = data;
 				this.url = 'https://player.vimeo.com/video/' + data['videos'][0].idvideo + '?autoplay=1';
 				this.loadingVid = false;
-				if (window.innerWidth > 600) {
+				/* if (window.innerWidth > 600) {
 					window.scrollTo(0, 80);
-				} else window.scrollTo(0, 0);
+				} else */ window.scrollTo(0, 0);
 			});
 		});
 		this.getVideoList();
 	}
 
 	loadRight() {
-		if (this.pagesCount > this.pageActual) {
-			this.pageActual = this.pageActual + 1;
-		} else {
-			if (this.loadingCount < 5) {
-				this.loadingVideos = true;
-				this.pagesCount = this.pagesCount + 1;
-				this.pageActual = this.pageActual + 1;
+			if (this.loadingCount < 3) {
+				this.loadingMore = true;
+				/* this.pagesCount = this.pagesCount + 1;
+				this.pageActual = this.pageActual + 1; */
 				this.sffservice.getvideosrecommend().subscribe((data: Video[]) => {
 					this.videoList['videos'] = this.videoList['videos'].concat(data['videos']);
-					console.log(this.videoList);
-					this.loadingVideos = false;
+					this.loadingMore = false;
         });
         this.loadingCount++;
 			}
-		}
 	}
 
-	loadLeft() {
-		if (this.pageActual > 1) {
-			this.pageActual = this.pageActual - 1;
-		}
-	}
 
 	loadPage() {
 		if (!this.app.fullAccess) {
