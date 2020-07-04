@@ -12,9 +12,11 @@
 }
 
 .videoCont {
-  width: 80%;
-  /* background-color: rgb(221, 221, 221); */
+  width: 100%;
+  background-color: rgb(28, 30, 31); 
   margin: 0 auto 2% auto;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .videoContMovil {
@@ -25,7 +27,7 @@
 
 .videoCont hr {
   border: 0.1px solid rgb(85, 81, 81);
-  margin: 1% 9% 0 9%;
+  margin: 1% 4% 0 4%;
 }
 .videoContMovil hr {
   border: 0.1px solid rgb(85, 81, 81);
@@ -36,7 +38,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding-top: 47%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  padding-top: 54%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 
@@ -55,7 +57,7 @@
 }
 .titleCont {
   /* background-color: tomato; */
-  padding-left: 10%;
+  padding-left: 4%;
   font-family: "IBM Plex Sans", sans-serif;
   color: white;
 }
@@ -63,7 +65,7 @@
 .dateCont {
   /* background-color: turquoise; */
   text-align: right;
-  padding-right: 10%;
+  padding-right: 4%;
   font-family: "IBM Plex Sans Condensed", sans-serif;
   color: white;
   font-size: 16px;
@@ -81,7 +83,6 @@
   width: 100%;
   /* height: 300px; */
   /*  background: linear-gradient(rgb(34, 31, 30), rgb(34, 31, 30)); */
-  /* background-color: rgb(30, 33, 34); */
 }
 
 .flechaizquierda {
@@ -96,6 +97,14 @@
 }
 
 .fa-angle-double-left {
+  color: rgb(216, 207, 207);
+}
+
+.fa-angle-double-up {
+  color: rgb(216, 207, 207);
+}
+
+.fa-angle-double-down {
   color: rgb(216, 207, 207);
 }
 
