@@ -33,7 +33,7 @@ export class VideoComponent implements OnInit {
 	onScroll(): void {
 	
 		if (
-			window.innerHeight + window.scrollY >= document.body.offsetHeight - 50 &&
+			window.innerHeight + window.scrollY >= document.body.offsetHeight - 130 &&
 			!this.loadingMore && !this.loadingVideos
 		) {
 			this.loadRight();
@@ -46,7 +46,7 @@ export class VideoComponent implements OnInit {
 			this.videoList = data;
 			this.loadingVideos = false;
 			/* if (window.innerWidth > 600) {
-				window.scrollTo(0, 80);
+				window.scrollTo(0, 53);
 			} */
 		});
 		/* this.loading = true
@@ -77,7 +77,7 @@ export class VideoComponent implements OnInit {
 				this.url = 'https://player.vimeo.com/video/' + data['videos'][0].idvideo + '?autoplay=1';
 				this.loadingVid = false;
 				/* if (window.innerWidth > 600) {
-					window.scrollTo(0, 80);
+					window.scrollTo(0, 53);
 				} else */ window.scrollTo(0, 0);
 			});
 		});
